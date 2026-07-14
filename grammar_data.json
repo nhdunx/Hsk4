@@ -1,0 +1,468 @@
+[
+    {
+        "category": "Liên từ tăng tiến (递进连词)",
+        "structures": [
+            {
+                "pattern": "不仅……，也/还/而且……",
+                "pinyin": "Bùjǐn..., yě/hái/érqiě...",
+                "meaning": "Không những... mà còn...",
+                "explanation": "Biểu thị mối quan hệ tăng tiến. Nếu hai phân câu cùng chủ ngữ, '不仅' đứng sau chủ ngữ. Nếu khác chủ ngữ, '不仅' đứng trước chủ ngữ thứ nhất.",
+                "examples": [
+                    {
+                        "chinese": "他不仅汉字写得漂亮，而且说得很流利。",
+                        "pinyin": "Tā bùjǐn Hànzì xiě de piàoliang, érqiě shuō de hěn liúlì.",
+                        "vietnamese": "Anh ấy không những viết chữ Hán đẹp, mà còn nói rất lưu loát."
+                    },
+                    {
+                        "chinese": "不仅我去过那个地方，他老家也在那儿。",
+                        "pinyin": "Bùjǐn wǒ qù guo nàge dìfang, tā lǎojiā yě zài nàr.",
+                        "vietnamese": "Không chỉ tôi từng đến nơi đó, mà quê nhà của anh ấy cũng ở đó."
+                    }
+                ]
+            },
+            {
+                "pattern": "不但不/没……，反而……",
+                "pinyin": "Búdànbù/méi..., fǎn'ér...",
+                "meaning": "Không những không... trái lại còn...",
+                "explanation": "Biểu thị kết quả hoặc thực tế hoàn toàn trái ngược với dự đoán thông thường, mang sắc thái nhấn mạnh mạnh mẽ.",
+                "examples": [
+                    {
+                        "chinese": "风不但没停，反而越刮越大了。",
+                        "pinyin": "Fēng búdàn méi tíng, fǎn'ér yuè guā yuè dà le.",
+                        "vietnamese": "Gió không những không ngừng, mà trái lại còn ngày càng thổi mạnh hơn."
+                    }
+                ]
+            },
+            {
+                "pattern": "甚至……",
+                "pinyin": "Shènzhì...",
+                "meaning": "Thậm chí...",
+                "explanation": "Phó từ dùng để nhấn mạnh một sự việc hoặc ví dụ mang tính cực đoan, thể hiện mức độ tăng tiến rõ rệt.",
+                "examples": [
+                    {
+                        "chinese": "他太忙了，甚至连吃饭的时间都没有。",
+                        "pinyin": "Tā tài máng le, shènzhì lián chīfàn de shíjiān dōu méiyǒu.",
+                        "vietnamese": "Anh ấy bận quá, thậm chí đến thời gian ăn cơm cũng không có."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Liên từ chuyển ngoặt (转折连词)",
+        "structures": [
+            {
+                "pattern": "虽然……，但是/可是/却……",
+                "pinyin": "Suīrán..., dànshì/kěshì/què...",
+                "meaning": "Tuy rằng... nhưng...",
+                "explanation": "Cấu trúc biểu thị quan hệ đối lập. '却' là phó từ nên phải đứng sau chủ ngữ của vế thứ hai.",
+                "examples": [
+                    {
+                        "chinese": "虽然外面下雨，但他却坚持去跑步。",
+                        "pinyin": "Suīrán wàimiàn xià yǔ, dàn tā què jiānchí qù pǎobù.",
+                        "vietnamese": "Tuy rằng bên ngoài trời mưa, nhưng anh ấy vẫn kiên trì đi chạy bộ."
+                    }
+                ]
+            },
+            {
+                "pattern": "尽管……，可是/却/还是……",
+                "pinyin": "Jǐnguǎn..., kěshì/què/háishì...",
+                "meaning": "Mặc dù, cho dù... nhưng...",
+                "explanation": "Khẳng định một sự thật ở vế đầu làm tiền đề, vế sau biểu thị kết quả không bị ảnh hưởng bởi tiền đề đó. Nhấn mạnh hơn '虽然'.",
+                "examples": [
+                    {
+                        "chinese": "尽管工作很累，他还是坚持学习汉语。",
+                        "pinyin": "Jǐnguǎn gōngzuò hěn lèi, tā háishì jiānchí xuéxí Hànyǔ.",
+                        "vietnamese": "Mặc dù công việc rất mệt, anh ấy vẫn kiên trì học tiếng Trung."
+                    }
+                ]
+            },
+            {
+                "pattern": "可是 / 不过……",
+                "pinyin": "Kěshì / Bùguò...",
+                "meaning": "Nhưng mà, có điều...",
+                "explanation": "'不过' mang sắc thái chuyển ngoặt nhẹ nhàng hơn '但是' và '可是', thường dùng để bổ sung hoặc giảm nhẹ ý nói trước đó.",
+                "examples": [
+                    {
+                        "chinese": "这件衣服很好看, 不过价钱有点儿贵。",
+                        "pinyin": "Zhè jiàn yīfu hěn hǎokàn, bùguò jiàqian yǒudiǎnr guì.",
+                        "vietnamese": "Bộ quần áo này rất đẹp, có điều giá hơi đắt một chút."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Liên từ điều kiện và giả thuyết (条件与假设连词)",
+        "structures": [
+            {
+                "pattern": "只要……，就……",
+                "pinyin": "Zhǐyào..., jiù...",
+                "meaning": "Chỉ cần... là...",
+                "explanation": "Biểu thị điều kiện đủ. Chỉ cần đáp ứng điều kiện vế trước thì vế sau chắc chắn có kết quả.",
+                "examples": [
+                    {
+                        "chinese": "只要努力，就一定能行。",
+                        "pinyin": "Zhǐyào nǔlì, jiù yīdìng néng xíng.",
+                        "vietnamese": "Chỉ cần nỗ lực, thì nhất định sẽ được."
+                    }
+                ]
+            },
+            {
+                "pattern": "只有……，才……",
+                "pinyin": "Zhǐyǒu..., cái...",
+                "meaning": "Chỉ có... mới...",
+                "explanation": "Biểu thị điều kiện cần duy nhất. Phải thỏa mãn điều kiện ở vế trước thì mới có thể đạt được kết quả ở vế sau.",
+                "examples": [
+                    {
+                        "chinese": "只有多听多说，才能学好外语。",
+                        "pinyin": "Zhǐyǒu duō tīng duō shuō, cái néng xuéhǎo wàiyǔ.",
+                        "vietnamese": "Chỉ có nghe nhiều nói nhiều, mới có thể học tốt ngoại ngữ."
+                    }
+                ]
+            },
+            {
+                "pattern": "无论/不管……，都/也……",
+                "pinyin": "Wúlùn/Bùguǎn..., dōu/yě...",
+                "meaning": "Bất kể, dù... đi nữa cũng...",
+                "explanation": "Vế trước thường đi kèm các từ nghi vấn (谁, 什么, 怎么) hoặc thể lựa chọn A 还是 B để bao quát toàn bộ trường hợp. Vế sau biểu thị kết quả không đổi.",
+                "examples": [
+                    {
+                        "chinese": "无论天气怎么样，我都去跑步。",
+                        "pinyin": "Wúlùn tiānqì zěnmeyàng, wǒ dōu qù pǎobù.",
+                        "vietnamese": "Bất kể thời tiết thế nào, tôi đều đi chạy bộ."
+                    }
+                ]
+            },
+            {
+                "pattern": "要是……，就……",
+                "pinyin": "Yàoshi..., jiù...",
+                "meaning": "Nếu mà... thì...",
+                "explanation": "Biểu thị mối quan hệ giả thuyết, dùng nhiều trong khẩu ngữ (tương tự như 如果...就...).",
+                "examples": [
+                    {
+                        "chinese": "要是你没空，我就一个人去。",
+                        "pinyin": "Yàoshi nǐ méi kòng, wǒ jiù yīge rén qù.",
+                        "vietnamese": "Nếu mà cậu không có rảnh, tớ sẽ đi một mình."
+                    }
+                ]
+            },
+            {
+                "pattern": "即使……，也……",
+                "pinyin": "Jíshǐ..., yě...",
+                "meaning": "Ngay cả/Cho dù... thì cũng...",
+                "explanation": "Vế trước đưa ra một giả thiết cực đoan hoặc nhượng bộ, vế sau khẳng định kết quả vẫn giữ nguyên.",
+                "examples": [
+                    {
+                        "chinese": "即使明天不下雨，我也不想出门。",
+                        "pinyin": "Jíshǐ míngtiān bù xià yǔ, wǒ yě bù xiǎng chūmén.",
+                        "vietnamese": "Cho dù ngày mai trời không mưa, tôi cũng không muốn ra ngoài."
+                    }
+                ]
+            },
+            {
+                "pattern": "既然……，就/也/还……",
+                "pinyin": "Jìrán..., jiù/yě/hái...",
+                "meaning": "Đã... thì...",
+                "explanation": "Vế trước đưa ra một thực tế hoặc một sự thật đã biết làm tiền đề, vế sau rút ra kết luận hoặc đưa ra mệnh lệnh dựa trên sự thật đó.",
+                "examples": [
+                    {
+                        "chinese": "既然你生病了，就客气在家里休息吧。",
+                        "pinyin": "Jìrán nǐ shēngbìng le, jiù kèqi zài jiālǐ xiūxi ba.",
+                        "vietnamese": "Đã là cậu bị bệnh rồi, thì hãy nghỉ ngơi ở nhà đi."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Liên từ lựa chọn và mục đích (选择与目的连词)",
+        "structures": [
+            {
+                "pattern": "与其……，不如……",
+                "pinyin": "Yǔqí..., bùrú...",
+                "meaning": "Thay vì... thà rằng/không bằng...",
+                "explanation": "So sánh hai sự việc, người nói từ bỏ lựa chọn ở vế trước '与其' và nghiêng về lựa chọn tốt hơn ở vế sau '不如'.",
+                "examples": [
+                    {
+                        "chinese": "与其在家里睡觉，不如出去走走。",
+                        "pinyin": "Yǔqí zài jiālǐ shuìjiào, bùrú chūqù zǒuzou.",
+                        "vietnamese": "Thay vì ở nhà ngủ, không bằng ra ngoài đi dạo."
+                    }
+                ]
+            },
+            {
+                "pattern": "要么……，要么……",
+                "pinyin": "Yàome..., yàome...",
+                "meaning": "Hoặc là... hoặc là...",
+                "explanation": "Dùng để đưa ra hai lựa chọn mang tính loại trừ lẫn nhau, chỉ được chọn một trong hai.",
+                "examples": [
+                    {
+                        "chinese": "要么听音乐，要么看书，你选一个。",
+                        "pinyin": "Yàome tīng yīnyuè, yàome kàn shū, nǐ xuǎn yīge.",
+                        "vietnamese": "Hoặc là nghe nhạc, hoặc là đọc sách, cậu chọn một cái đi."
+                    }
+                ]
+            },
+            {
+                "pattern": "为了……",
+                "pinyin": "Wèile...",
+                "meaning": "Để, vì mục đích...",
+                "explanation": "Dùng để biểu thị mục đích của hành động. Thường đứng ở đầu câu.",
+                "examples": [
+                    {
+                        "chinese": "为了考好HSK4，他每天学5个小时。",
+                        "pinyin": "Wèile kǎo hǎo HSK4, tā měitiān xué wǔ ge xiǎoshí.",
+                        "vietnamese": "Để thi tốt HSK4, anh ấy học 5 tiếng mỗi ngày."
+                    }
+                ]
+            },
+            {
+                "pattern": "以免 / 免得……",
+                "pinyin": "Yǐmiǎn / Miǎnde...",
+                "meaning": "Để tránh, đỡ phải...",
+                "explanation": "Đứng đầu vế câu thứ hai nhằm nói rõ mục đích ngăn ngừa một kết quả không mong muốn xảy ra.",
+                "examples": [
+                    {
+                        "chinese": "你多穿点衣服，以免感冒。",
+                        "pinyin": "Nǐ duō chuān diǎn yīfu, yǐmiǎn gǎnmào.",
+                        "vietnamese": "Cậu mặc nhiều áo một chút, để tránh bị cảm lạnh."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Cấu trúc nhấn mạnh và câu đặc biệt (强调与特殊句型)",
+        "structures": [
+            {
+                "pattern": "连……也/都……",
+                "pinyin": "Lián... yě/dōu...",
+                "meaning": "Ngay cả... cũng...",
+                "explanation": "Dùng để nhấn mạnh một thành phần câu bằng cách đưa ra một trường hợp cực đoan.",
+                "examples": [
+                    {
+                        "chinese": "这个问题太难了，连老师都不会做。",
+                        "pinyin": "Zhège wèntí tài nán le, lián lǎoshī dōu bú huì zuò.",
+                        "vietnamese": "Câu hỏi này khó quá, ngay cả thầy giáo cũng không biết làm."
+                    }
+                ]
+            },
+            {
+                "pattern": "是……的",
+                "pinyin": "Shì... de",
+                "meaning": "Nhấn mạnh thời gian, địa điểm, cách thức.",
+                "explanation": "Nhấn mạnh các chi tiết liên quan đến hành động ĐÃ XẢY RA trong quá khứ.",
+                "examples": [
+                    {
+                        "chinese": "我是去年来中国的。",
+                        "pinyin": "Wǒ shì qùnián lái Zhōngguó de.",
+                        "vietnamese": "Tôi là năm ngoái đến Trung Quốc (Nhấn mạnh thời gian)."
+                    }
+                ]
+            },
+            {
+                "pattern": "把字句 (Câu chữ 把)",
+                "pinyin": "Bǎ zì jù",
+                "meaning": "Chủ thể tác động và làm thay đổi trạng thái/vị trí vật thể.",
+                "explanation": "Công thức: S + 把 + O + V + Thành phần khác. Thành phần khác có thể là 了, bổ ngữ, hoặc lặp lại động từ.",
+                "examples": [
+                    {
+                        "chinese": "你把灯关了吧。",
+                        "pinyin": "Nǐ bǎ dēng guān le ba.",
+                        "vietnamese": "Cậu tắt đèn đi nhé."
+                    }
+                ]
+            },
+            {
+                "pattern": "被字句 (Câu chữ 被)",
+                "pinyin": "Bèi zì jù",
+                "meaning": "Câu bị động",
+                "explanation": "Công thức: O + 被 (叫/让) + S + V + Thành phần khác. Trong khẩu ngữ có thể dùng '让' hoặc '叫' thay cho '被'.",
+                "examples": [
+                    {
+                        "chinese": "我的手机被弟弟拿走了。",
+                        "pinyin": "Wǒ de shǒujī bèi dìdi ná zǒu le.",
+                        "vietnamese": "Điện thoại của tôi bị em trai lấy đi rồi."
+                    }
+                ]
+            },
+            {
+                "pattern": "难怪……",
+                "pinyin": "Nánguài...",
+                "meaning": "Thảo nào, chẳng trách...",
+                "explanation": "Biểu thị sự hiểu ra lý do của vấn đề, không còn thấy lạ lẫm hay ngạc nhiên nữa.",
+                "examples": [
+                    {
+                        "chinese": "难怪他没来，原来是生病了。",
+                        "pinyin": "Nánguài tā méi lái, yuánlái shì shēngbìng le.",
+                        "vietnamese": "Chẳng trách anh ấy không đến, hóa ra là bị bệnh rồi."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Hệ thống bổ ngữ trung cấp (补语系统)",
+        "structures": [
+            {
+                "pattern": "Bổ ngữ xu hướng kép (复合趋向补语): V + 起来/下去/出来",
+                "pinyin": "V + qǐlái / xiàqù / chūlái",
+                "meaning": "Bổ ngữ xu hướng mở rộng ý nghĩa.",
+                "explanation": "• 起来: Bắt đầu và tiếp diễn (笑起来); hoặc thu thập lại. • 下去: Tiếp tục duy trì hành động đang làm (学下去). • 出来: Nhận diện, làm xuất hiện cái mới từ không thành có (想出来).",
+                "examples": [
+                    {
+                        "chinese": "听了他的话，大家都笑了起来。",
+                        "pinyin": "Tīng le tā de huà, dàjiā dōu xiào le qǐlái.",
+                        "vietnamese": "Nghe xong lời anh ấy nói, mọi người đều cười rộ lên."
+                    },
+                    {
+                        "chinese": "虽然汉语很难，但我会坚持学下去。",
+                        "pinyin": "Suīrán Hànyǔ hěn nán, dàn wǒ huì jiānchí xué xiàqù.",
+                        "vietnamese": "Mặc dù tiếng Trung rất khó, nhưng tôi vẫn sẽ tiếp tục học tiếp."
+                    }
+                ]
+            },
+            {
+                "pattern": "Bổ ngữ khả năng (可能补语): V + 得 / 不 + Kết quả/Xu hướng",
+                "pinyin": "V + de / bù + Result/Direction",
+                "meaning": "Có thể làm được / Không thể làm được việc gì.",
+                "explanation": "Dùng để biểu thị điều kiện khách quan có cho phép hành động đạt được kết quả/xu hướng nào đó hay không.",
+                "examples": [
+                    {
+                        "chinese": "作业太多了，我做不完。",
+                        "pinyin": "Zuòyè tài duō le, wǒ zuò bù wán.",
+                        "vietnamese": "Bài tập nhiều quá, tôi làm không xong được."
+                    }
+                ]
+            },
+            {
+                "pattern": "V + 得了 (liǎo) / V + 不了 (liǎo)",
+                "pinyin": "V + déliǎo / V + bùliǎo",
+                "meaning": "Có thể / Không thể thực hiện hành động.",
+                "explanation": "Một dạng đặc biệt của bổ ngữ khả năng, nhấn mạnh khả năng xảy ra hoặc hoàn thành toàn bộ hành động.",
+                "examples": [
+                    {
+                        "chinese": "明天我有事，去不了了。",
+                        "pinyin": "Míngtiān wǒ yǒu shì, qù bù liǎo le.",
+                        "vietnamese": "Ngày mai tôi có việc, không đi được rồi."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Phó từ tần suất và ngữ khí trọng tâm (重点副词)",
+        "structures": [
+            {
+                "pattern": "竟然 / 居然",
+                "pinyin": "Jìngrán / Jūrán",
+                "meaning": "Không ngờ, vậy mà...",
+                "explanation": "Biểu thị ngữ khí ngạc nhiên, sự việc xảy ra nằm ngoài dự liệu của người nói.",
+                "examples": [
+                    {
+                        "chinese": "这么简单的题，你竟然做错了？",
+                        "pinyin": "Zhème jiǎndān de tí, nǐ jingrán zuò cuò le?",
+                        "vietnamese": "Câu hỏi đơn giản thế này mà cậu lại làm sai được sao?"
+                    }
+                ]
+            },
+            {
+                "pattern": "从来",
+                "pinyin": "Cónglái",
+                "meaning": "Từ trước đến nay...",
+                "explanation": "Thường đi kèm hình thức phủ định: '从来不' (thói quen không làm gì từ trước tới nay) hoặc '从来没...过' (trước giờ chưa từng có kinh nghiệm làm gì).",
+                "examples": [
+                    {
+                        "chinese": "我从来没吃过这种菜。",
+                        "pinyin": "Wǒ cónglái méi chī guo zhèzhǒng cài.",
+                        "vietnamese": "Từ trước đến nay tôi chưa từng ăn món ăn này."
+                    }
+                ]
+            },
+            {
+                "pattern": "难道……吗？",
+                "pinyin": "Nándào... ma?",
+                "meaning": "Chẳng lẽ... sao?",
+                "explanation": "Dùng trong câu hỏi tu từ để nhấn mạnh ngữ khí phản vấn, thúc giục người nghe suy nghĩ.",
+                "examples": [
+                    {
+                        "chinese": "难道你忘了明天的考试吗？",
+                        "pinyin": "Nándào nǐ wàng le míngtiān de kǎoshì ma?",
+                        "vietnamese": "Chẳng lẽ cậu đã quên mất kỳ thi ngày mai rồi sao?"
+                    }
+                ]
+            },
+            {
+                "pattern": "千万……",
+                "pinyin": "Qiānwàn...",
+                "meaning": "Nhất định phải / Tuyệt đối (đừng)...",
+                "explanation": "Dùng để dặn dò, cảnh báo thiết tha. Thường đi kèm hình thức khuyên ngăn như '千万要', '千万别', '千万不要'.",
+                "examples": [
+                    {
+                        "chinese": "你千万别忘了明天的事情。",
+                        "pinyin": "Nǐ qiānwàn bié wàng le míngtiān de shìqing.",
+                        "vietnamese": "Cậu nhất định đừng quên việc ngày mai nhé."
+                    }
+                ]
+            },
+            {
+                "pattern": "大概 / 估计",
+                "pinyin": "Dàgài / Gūjì",
+                "meaning": "Khoảng, có lẽ, ước chừng...",
+                "explanation": "Dùng để đưa ra phán đoán, ước lượng không chắc chắn 100% về số lượng hoặc tình huống.",
+                "examples": [
+                    {
+                        "chinese": "他大概下午三点到北京。",
+                        "pinyin": "Tā dàgài xiàwǔ sān diǎn dào Běijīng.",
+                        "vietnamese": "Anh ấy có lẽ khoảng 3 giờ chiều tới Bắc Kinh."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Phân biệt từ vựng dễ nhầm lẫn (Từ cận nghĩa HSK4)",
+        "structures": [
+            {
+                "pattern": "适合 vs 合适",
+                "pinyin": "Shìhé vs Héshì",
+                "meaning": "Phù hợp, thích hợp",
+                "explanation": "• 适合: Động từ, phía sau BẮT BUỘC phải mang tân ngữ (Ví dụ: 这条裤子适合你). • 合适: Tính từ, đứng một mình làm vị ngữ hoặc định ngữ, KHÔNG mang tân ngữ (Ví dụ: 这条裤子很合适).",
+                "examples": [
+                    {
+                        "chinese": "这件衣服不适合我，款式不合适。",
+                        "pinyin": "Zhè jiàn yīfu bù shìhé wǒ, kuǎnshì bù héshì.",
+                        "vietnamese": "Bộ quần áo này không hợp với tôi, kiểu dáng không thích hợp lắm."
+                    }
+                ]
+            },
+            {
+                "pattern": "刚 vs 刚才",
+                "pinyin": "Gāng vs Gāngcái",
+                "meaning": "Vừa mới / Vừa nãy",
+                "explanation": "• 刚: Phó từ, chỉ đứng ngay trước động từ, không đứng trước chủ ngữ. • 刚才: Danh từ thời gian, có thể đứng trước động từ hoặc đứng trước chủ ngữ câu.",
+                "examples": [
+                    {
+                        "chinese": "他刚走。 / 刚才谁来了？",
+                        "pinyin": "Tā gāng zǒu. / Gāngcái shéi lái le?",
+                        "vietnamese": "Anh ấy vừa đi xong. / Vừa nãy ai đến thế?"
+                    }
+                ]
+            },
+            {
+                "pattern": "感觉 vs 觉得",
+                "pinyin": "Gǎnjé vs Juédé",
+                "meaning": "Cảm thấy / Cho rằng",
+                "explanation": "• 觉得: Đưa ra quan điểm cá nhân mang tính lý trí rõ ràng. • 感觉: Cảm giác về mặt thể chất (nóng, lạnh) hoặc trực giác chưa có căn cứ lý tính cụ thể.",
+                "examples": [
+                    {
+                        "chinese": "我觉得他很聪明。 / 出了汗，身体感觉舒服多了。",
+                        "pinyin": "Wǒ juéde tā hěn cōngming. / Chū le hàn, shēntǐ gǎnjué shūfu duō le.",
+                        "vietnamese": "Tôi thấy anh ấy rất thông minh. / Ra mồ hôi xong, cơ thể cảm thấy dễ chịu hơn nhiều."
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>汉字学习 · Từ vựng tiếng Trung</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Shared design system (edit css/theme.css for global visual changes across hsk3/hsk4/hskfix) -->
+<link rel="stylesheet" href="css/theme.css">
+<!-- App-specific styles -->
+<link rel="stylesheet" href="style.css">
+<style>
+/* Toolbar icon toggles */
+.toolbar-sep{display:inline-block;width:1px;height:24px;background:rgba(255,255,255,.15);vertical-align:middle;margin:0 6px}
+.icon-toggle{width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(0,0,0,.08);background:white;display:inline-flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;transition:all .15s;padding:0;line-height:1;vertical-align:middle;color:#1a0a00;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+.icon-toggle:hover{border-color:rgba(0,0,0,.15);box-shadow:0 2px 8px rgba(0,0,0,.15);transform:scale(1.06)}
+.icon-toggle.on{background:#d4a017;border-color:#d4a017;color:white;box-shadow:0 2px 8px rgba(212,160,23,.35)}
+.icon-toggle.on svg{stroke:white}
+.icon-toggle.on-red{background:#c0392b;border-color:#c0392b;color:white;box-shadow:0 2px 8px rgba(192,57,43,.35)}
+.icon-toggle.on-red svg{stroke:white}
+.icon-toggle.icon-reset{color:#95a5a6;border-color:rgba(0,0,0,.06)}
+.icon-toggle.icon-reset:hover{color:#c0392b}
+/* SVG pinyin icon */
+.icon-toggle.on-red .eye-open{display:none}
+.icon-toggle.on-red .eye-slash{display:inline}
+.icon-toggle:not(.on-red) .eye-open{display:inline}
+.icon-toggle:not(.on-red) .eye-slash{display:none}
+/* Star gạch khi bật ẩn */
+.icon-toggle .star-slash{display:none;position:absolute;width:18px;height:2px;background:#fff;transform:rotate(-45deg);border-radius:1px}
+.icon-toggle.on-red-slash .star-slash{display:block}
+.icon-toggle.on-red-slash{background:#c0392b;border-color:#c0392b;color:white;box-shadow:0 2px 8px rgba(192,57,43,.35);position:relative}
+/* Toolbar actions group */
+.toolbar-actions{margin-left:auto;display:flex;gap:6px;align-items:center}
+.fc-btn{background:#2980b9 !important}
+.fc-btn:hover{background:#1a6da0 !important}
+/* Tăng size chữ Hán ví dụ */
+.ex-hanzi{font-size:17px !important;line-height:1.6 !important}
+.select-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}
+.select-btn{border:1px solid rgba(0,0,0,.08);background:white;border-radius:18px;padding:16px 14px;text-align:center;cursor:pointer;box-shadow:0 2px 7px rgba(0,0,0,.06);transition:all .16s;display:flex;flex-direction:column;gap:8px;min-height:96px}
+.select-btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.08)}
+.select-btn-correct{border-color:#27ae60;background:rgba(39,174,96,.12);color:#1d5c38}
+.select-btn-wrong{border-color:#c0392b;background:rgba(192,57,43,.12);color:#77302a}
+.select-btn-sub{font-size:12px;color:var(--gray);line-height:1.4}
+.select-prompt{font-size:14px;color:var(--gray);margin-bottom:6px}
+.select-meaning{font-size:20px;color:#222;line-height:1.45}
+.grammar-body{padding:20px;display:flex;flex-direction:column;gap:20px}
+.grammar-category{margin-bottom:0;border:none;background:none;box-shadow:none;padding:0}
+.grammar-category h2{margin:0 0 16px;font-size:24px;color:#1f3d6d;border-bottom:2px solid #2980b9;padding-bottom:12px}
+.grammar-card{background:white;border:1.5px solid rgba(192,57,43,.12);border-radius:18px;padding:28px 24px;text-align:center;box-shadow:0 2px 16px rgba(26,10,0,.06);position:relative;overflow:hidden;transition:all .25s ease;cursor:pointer}
+.grammar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--red);transform:scaleX(1);transform-origin:left}
+.grammar-card:hover{transform:translateY(-6px);box-shadow:0 8px 32px rgba(26,10,0,.12);border-color:rgba(192,57,43,.25)}
+.grammar-category-card{border:1.5px solid rgba(192,57,43,.12);border-radius:18px;padding:28px 24px;text-align:center;background:white;cursor:pointer;transition:all .25s ease;box-shadow:0 2px 16px rgba(26,10,0,.06);display:flex;flex-direction:column;gap:14px;min-height:140px;justify-content:center;position:relative;overflow:hidden}
+.grammar-category-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--red);transform:scaleX(1);transform-origin:left}
+.grammar-category-card:hover{transform:translateY(-6px);box-shadow:0 8px 32px rgba(26,10,0,.12);border-color:rgba(192,57,43,.25)}
+.grammar-category-card-num{font-size:26px;font-weight:700;color:#2980b9;line-height:1}
+.grammar-category-card-label{font-size:15px;color:#2c3e50;font-weight:700;line-height:1.4;min-height:52px}
+.grammar-card-action{margin:0 auto;padding:10px 20px;border:none;border-radius:999px;background:#2980b9;color:white;font-weight:700;cursor:pointer;transition:background .2s;letter-spacing:.3px}
+.grammar-card-action:hover{background:#1a6da0}
+.grammar-loading{padding:20px;font-size:15px;color:#666}
+.grammar-list-view{padding:20px;display:flex;flex-direction:column;gap:16px;max-width:1100px;margin:0 auto}
+.grammar-categories-grid{display:grid;grid-template-columns:repeat(3,minmax(240px,1fr));gap:18px;justify-content:center}
+.grammar-detail-view{padding:20px}
+@media (max-width: 900px) {
+  .grammar-categories-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+.grammar-detail-back{display:flex;align-items:center;gap:8px;font-size:14px;color:#2980b9;cursor:pointer;margin-bottom:16px;padding:8px 0}
+.grammar-detail-back:hover{text-decoration:underline}
+.grammar-detail-content{display:flex;flex-direction:column;gap:18px}
+.grammar-detail-card{background:white;border:1.5px solid rgba(192,57,43,.12);border-radius:18px;padding:28px 24px;box-shadow:0 2px 16px rgba(26,10,0,.06)}
+.grammar-structure{margin-bottom:16px;padding:18px;border-radius:16px;background:#fafafa;border:1px solid rgba(0,0,0,.06)}
+.grammar-pattern{font-size:17px;font-weight:700;color:#1f3d6d;margin-bottom:10px}
+.grammar-meta{display:flex;flex-wrap:wrap;gap:10px;font-size:13px;color:#666;margin-bottom:10px}
+.grammar-explanation{font-size:15px;color:#444;line-height:1.7;margin-bottom:14px}
+.grammar-examples{display:flex;flex-direction:column;gap:12px}
+.grammar-example{padding:14px 16px;border-radius:14px;background:#fff;border:1px solid rgba(0,0,0,.05)}
+.grammar-example-chinese{font-size:17px;color:#111;margin-bottom:6px}
+.grammar-example-pinyin{font-size:13px;color:#777;margin-bottom:3px}
+.grammar-example-vn{font-size:13px;color:#444}
+/* === SYNC WITH MAIN LANDING PAGE === */
+        :root {
+            --red: #c0392b;
+            --red-dark: #922b21;
+            --gold: #d4a017;
+            --gold-light: #f1c40f;
+            --ink: #1a0a00;
+            --gray: #666;
+            --paper: #fdfaf5;
+            --correct: #27ae60;
+            --blue: #2980b9;
+        }
+        .header { background: white; border-bottom: 1px solid rgba(192,57,43,0.1); box-shadow: 0 2px 12px rgba(26,10,0,0.06); }
+        .header-inner { max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+        .logo-icon { font-size: 28px; width: 44px; height: 44px; background: linear-gradient(135deg, var(--red), var(--red-dark)); color: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 700; box-shadow: 0 3px 10px rgba(192,57,43,0.3); font-family: 'Noto Serif SC', SimSun, serif; }
+        .logo-text { font-family: 'Noto Serif SC', SimSun, 'Songti SC', serif; font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+        .logo-sub { font-size: 11px; color: var(--gray); font-weight: 500; letter-spacing: 2px; margin-top: -5px; }
+        .hsk-card { 
+            background: white; 
+            border: 1.5px solid rgba(192,57,43,0.12); 
+            border-radius: 16px; 
+            box-shadow: 0 8px 24px rgba(26,10,0,0.08); 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .hsk-card:hover { 
+            transform: translateY(-6px); 
+            box-shadow: 0 18px 40px rgba(26,10,0,0.13); 
+            border-color: rgba(192,57,43,0.28); 
+        }
+        .hsk-card-btn {
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 12px 20px;
+            transition: all .2s;
+            box-shadow: 0 3px 10px rgba(192,57,43,0.2);
+        }
+        .hsk-card-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 14px rgba(192,57,43,0.3);
+        }
+        /* === END SYNC === */
+</style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <a href="../index.html" class="logo">
+            <img src="../logo-dunx-hsk.png" alt="Dunx HSK" style="width:44px;height:44px;border-radius:10px;box-shadow:0 3px 10px rgba(192,57,43,0.3);">
+            <div>
+                <div class="logo-text">Dunx HSK</div>
+                <div class="logo-sub">HSK4 + Ngữ pháp + Phát âm</div>
+            </div>
+        </a>
+        <a href="../index.html" style="padding:8px 18px;border-radius:999px;font-size:13px;font-weight:600;text-decoration:none;color:var(--ink);border:1.5px solid rgba(0,0,0,0.08);">← Về Dunx HSK</a>
+    </div>
+</header>
+
+<!-- ==================== HSK SELECT ==================== -->
+<div id="select-screen" class="screen active">
+  <header class="select-header">
+    <div class="select-logo">汉字学习</div>
+    <button class="btn-nav" id="profile-badge" onclick="showProfileModal()" style="padding:8px 12px;font-size:13px">👤 Người dùng</button>
+  </header>
+  <div class="select-body">
+    <div class="select-title">
+      <h1>选择等级</h1>
+      <p>Chọn cấp độ HSK để bắt đầu học từ vựng</p>
+    </div>
+    <div class="hsk-grid" id="hsk-grid"></div>
+  </div>
+</div>
+
+<!-- ==================== GRAMMAR SECTION ==================== -->
+<div id="grammar-screen" class="screen">
+  <header class="app-header">
+    <div class="app-logo">
+      <button class="btn-back-arrow" id="grammar-back-btn" onclick="backToSelect()" title="Quay lại">←</button>
+      <span id="grammar-title">Ngữ Pháp</span>
+    </div>
+  </header>
+  <!-- List view -->
+  <div id="grammar-list-view" class="grammar-list-view">
+    <div class="grammar-categories-grid" id="grammar-categories-grid">
+      <div class="grammar-loading">Đang tải dữ liệu ngữ pháp...</div>
+    </div>
+  </div>
+  <!-- Detail view -->
+  <div id="grammar-detail-view" class="grammar-detail-view" style="display:none">
+    <div class="grammar-detail-content" id="grammar-detail-content">
+      <div class="grammar-loading">Đang tải chi tiết...</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== LEARN APP ==================== -->
+<div id="app-screen" class="screen">
+  <header class="app-header">
+    <div class="app-logo">
+      <button class="btn-back-arrow" onclick="backToSelect()" title="Quay lại">←</button>
+      <span>汉字</span> <span id="app-level-label">HSK2</span>
+    </div>
+  </header>
+  <div class="toolbar">
+    <button class="mode-btn active" onclick="setMode('all',this)">Tất cả</button>
+    <button class="mode-btn" onclick="setMode('hanzi',this)">KT chữ Hán</button>
+    <button class="mode-btn" onclick="setMode('meaning',this)">KT nghĩa</button>
+    <button class="mode-btn" onclick="setMode('pinyin',this)">KT Pinyin</button>
+    <span class="toolbar-sep"></span>
+    <button class="icon-toggle" id="shuffle-btn" onclick="toggleShuffle()" title="Xáo trộn">🔀</button>
+    <button class="icon-toggle" id="pinyin-btn" onclick="togglePinyin()" title="Ẩn pinyin"><span class="eye-open"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="eye-slash"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg></span></button>
+    <button class="icon-toggle" id="hide-starred-btn" onclick="toggleHideStarred()" title="Ẩn từ đã nhớ">⭐<span class="star-slash"></span></button>
+    <button class="icon-toggle icon-reset" id="reset-btn" onclick="resetAll()" title="Reset">↺</button>
+    <div class="toolbar-actions">
+      <button class="exam-btn fc-btn" onclick="showFlashcard()">🃏 Flashcard</button>
+      <button class="exam-btn" onclick="showExamSetup()">📝 Kiểm tra</button>
+    </div>
+  </div>
+  <div class="search-bar-wrap">
+    <input type="text" class="search-input" id="search-input" placeholder="🔍 Tìm từ (chữ Hán, pinyin hoặc nghĩa)..." oninput="handleSearch(this)">
+  </div>
+  <div class="table-wrap">
+    <table id="tbl" style="display:none">
+      <thead id="thead-row"></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div class="empty-state" id="empty-state" style="display:none">
+      <div class="empty-big">无</div><div>Không có dữ liệu</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== EXAM SETUP ==================== -->
+<div id="exam-screen" class="screen">
+  <div class="exam-setup">
+    <h2>📝 Bài kiểm tra</h2>
+    <p>Chọn cài đặt và bắt đầu kiểm tra từ vựng của bạn</p>
+    <div class="setup-section">
+      <span class="setup-label">Loại từ</span>
+      <div class="option-group">
+        <button class="opt-btn active" onclick="setExamOpt('pool','all',this)">Tất cả (<span id="exam-total">0</span>)</button>
+        <button class="opt-btn" id="starred-opt" onclick="setExamOpt('pool','starred',this)">Đã nhớ ⭐ (<span id="star-count">0</span>)</button>
+      </div>
+    </div>
+    <div class="setup-section">
+      <span class="setup-label">Loại kiểm tra</span>
+      <div class="option-group">
+        <button class="opt-btn active" onclick="setExamOpt('type','meaning',this)">KT nghĩa</button>
+        <button class="opt-btn" onclick="setExamOpt('type','hanzi',this)">KT chữ Hán</button>
+        <button class="opt-btn" onclick="setExamOpt('type','pt',this)">KT Phát Âm</button>
+        <button class="opt-btn" onclick="setExamOpt('type','py',this)">KT Pinyin</button>
+        <button class="opt-btn" onclick="setExamOpt('type','vt',this)">Dịch Tiếng Việt</button>
+      </div>
+    </div>
+    <div class="setup-section">
+      <span class="setup-label">Số từ</span>
+      <div class="option-group">
+        <button class="opt-btn active" onclick="setExamOpt('count',10,this)">10</button>
+        <button class="opt-btn" onclick="setExamOpt('count',50,this)">50</button>
+        <button class="opt-btn" id="exam-all-btn" onclick="setExamOpt('count',0,this)">Tất cả</button>
+        <input class="num-input" type="number" id="custom-count" placeholder="Tự nhập..." min="1"
+          oninput="setExamOpt('count',parseInt(this.value)||0,null)">
+      </div>
+      <div class="exam-warn" id="exam-warn"></div>
+    </div>
+    <!-- Toggle bỏ qua từ đã nhớ -->
+    <div class="toggle-row" id="skip-starred-row" onclick="toggleSkipStarred()">
+      <div class="toggle-label">
+        Bỏ qua từ đã nhớ ⭐<br>
+        <small>Chỉ kiểm tra từ chưa đánh dấu ⭐</small>
+      </div>
+      <div class="toggle-switch on" id="skip-starred-toggle"></div>
+    </div>
+    <!-- Toggle ẩn pinyin trong bài kiểm tra -->
+    <div class="toggle-row" id="hide-pinyin-row" onclick="toggleHidePinyinExam()">
+      <div class="toggle-label">
+        Ẩn pinyin trong bài kiểm tra<br>
+        <small>Chỉ hiện chữ Hán, rèn nhớ phát âm</small>
+      </div>
+      <div class="toggle-switch" id="hide-pinyin-toggle"></div>
+    </div>
+    <!-- Tiến độ -->
+    <div class="progress-wrap" id="exam-progress-wrap">
+      <div class="progress-label">
+        <span>Tiến độ</span>
+        <span><b id="prog-starred">0</b> / <span id="prog-total">0</span> từ đã nhớ ⭐</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
+      <div class="progress-note" id="prog-note">Còn <b>0</b> từ chưa đánh dấu</div>
+    </div>
+    <button class="btn-reset-progress" onclick="resetStarProgress()">↺ Đặt lại tiến độ (xóa hết ⭐)</button>
+    <div style="margin-top:16px">
+      <button class="btn-back" onclick="backToApp()">← Quay lại</button>
+      <button class="btn-start" onclick="startExam()">Bắt đầu →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== QUIZ ==================== -->
+<div id="quiz-screen" class="screen">
+  <div class="quiz-header">
+    <div>
+      <div style="font-family:'Noto Serif SC',SimSun,'Songti SC',serif;font-size:16px;letter-spacing:2px;color:var(--gold-light)">汉字学习</div>
+      <div class="quiz-progress-text" id="quiz-prog-text">Câu 1 / 10</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="quiz-progress-bar-wrap"><div class="quiz-progress-bar" id="quiz-bar" style="width:0%"></div></div>
+      <button class="btn-nav" onclick="quitQuiz()">✕ Thoát</button>
+    </div>
+  </div>
+  <div class="quiz-body">
+    <div class="quiz-card" id="quiz-card"></div>
+  </div>
+</div>
+
+<!-- ==================== RESULT ==================== -->
+<div id="result-screen" class="screen">
+  <div class="result-body">
+    <div class="result-card">
+      <div class="result-score" id="res-score">0/0</div>
+      <div class="result-sub" id="res-sub"></div>
+      <div class="result-stats">
+        <div class="stat-box"><div class="stat-num c" id="res-correct">0</div><div class="stat-label">Đúng</div></div>
+        <div class="stat-box"><div class="stat-num w" id="res-wrong">0</div><div class="stat-label">Sai</div></div>
+      </div>
+      <!-- Star save section -->
+      <div class="star-save-section" id="star-save-section">
+        <div class="star-save-title">⭐ Đánh dấu "đã nhớ"</div>
+        <div class="star-save-note">Tick từ nào đã thuộc → lần KT sau bỏ qua. Từ đúng được tick sẵn.</div>
+      </div>
+      <div class="result-list" id="res-list"></div>
+      <div style="margin-top:20px">
+        <button class="btn-save-star" id="btn-save-star" onclick="saveQuizStars()">⭐ Lưu từ đã nhớ</button>
+      </div>
+      <div style="margin-top:16px">
+        <button class="btn-retry" onclick="startExam()">🔄 Làm tiếp từ mới</button>
+        <button class="btn-home" onclick="backToApp()">← Về trang học</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PROFILE MODAL ==================== -->
+<div class="modal-overlay" id="profile-modal">
+  <div class="modal-box">
+    <h3>👤 Nhập tên học viên</h3>
+    <p style="color:var(--gray);font-size:13px;line-height:1.6;margin-bottom:12px">Nhập tên để lưu tiến trình và dữ liệu học tập trên thiết bị này. Bạn có thể xuất/nhập dữ liệu để dùng trên máy khác.</p>
+    <div class="field-wrap">
+      <label class="field-label">Tên của bạn</label>
+      <input type="text" id="profile-name-input" placeholder="Ví dụ: An">
+    </div>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="btn-login" onclick="saveProfileName()" style="flex:1">Lưu tên</button>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:10px">
+      <button class="btn-save-star" onclick="exportProfileData()" style="flex:1">📤 Xuất dữ liệu</button>
+      <button class="btn-back" onclick="document.getElementById('profile-import-file').click()" style="flex:1">📥 Nhập dữ liệu</button>
+    </div>
+    <input type="file" id="profile-import-file" accept=".json" style="display:none" onchange="handleProfileImport(this)">
+    <div class="modal-msg" id="profile-msg"></div>
+  </div>
+</div>
+
+<!-- ==================== QUIT QUIZ POPUP ==================== -->
+<div class="modal-overlay" id="quit-modal">
+  <div class="modal-box" style="text-align:center">
+    <div style="font-size:32px;margin-bottom:10px">⏸️</div>
+    <h3 style="margin-bottom:8px">Thoát bài kiểm tra?</h3>
+    <p id="quit-summary" style="color:var(--gray);font-size:13px;margin-bottom:20px"></p>
+    <button class="btn-save-star" onclick="quitAndSave()" style="width:100%;margin-bottom:10px" id="quit-save-btn">⭐ Lưu từ đúng & thoát</button>
+    <button class="btn-home" onclick="quitNoSave()" style="width:100%;margin-bottom:8px">Thoát không lưu</button>
+    <button class="btn-back" onclick="closeQuitModal()" style="width:100%">← Tiếp tục làm</button>
+  </div>
+</div>
+
+<!-- ==================== CHANGE PASSWORD MODAL ==================== -->
+<div class="modal-overlay" id="pw-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closePwModal()">✕</button>
+    <h3>🔑 Đổi mật khẩu</h3>
+    <div class="field-wrap">
+      <label class="field-label">Mật khẩu hiện tại</label>
+      <input type="password" id="pw-old" placeholder="Nhập mật khẩu hiện tại">
+    </div>
+    <div class="field-wrap">
+      <label class="field-label">Mật khẩu mới</label>
+      <input type="password" id="pw-new" placeholder="Nhập mật khẩu mới">
+    </div>
+    <div class="field-wrap">
+      <label class="field-label">Nhập lại mật khẩu mới</label>
+      <input type="password" id="pw-confirm" placeholder="Nhập lại mật khẩu mới">
+    </div>
+    <button class="btn-login" onclick="doChangePw()" style="margin-top:4px">Đổi mật khẩu</button>
+    <div class="modal-msg" id="pw-msg"></div>
+  </div>
+</div>
+
+<!-- ==================== LOCKED MESSAGE ==================== -->
+<div class="locked-msg" id="locked-msg">
+  <h3>🔒 Nội dung bị khóa</h3>
+  <p>Tạo tài khoản để mở khóa HSK bạn muốn học.<br>Liên hệ Zalo Admin để đăng ký:</p>
+  <p style="font-size:18px;font-weight:700;color:var(--red);margin:10px 0;letter-spacing:1px">📱 0792 739 257</p>
+  <button class="btn-login" onclick="closeLocked()" style="width:auto;padding:10px 24px;font-size:13px;background:var(--gray)">Đóng</button>
+</div>
+
+<!-- ==================== DEMO NOTICE POPUP ==================== -->
+<div class="locked-msg" id="demo-notice" style="display:none">
+  <h3>📱 Tạo tài khoản riêng</h3>
+  <p>Đây là tài khoản dùng thử.<br>Muốn có tài khoản riêng, liên hệ Zalo Admin:</p>
+  <p style="font-size:18px;font-weight:700;color:var(--red);margin:10px 0;letter-spacing:1px">0792 739 257</p>
+  <button class="btn-login" onclick="closeDemoNotice()" style="width:auto;padding:10px 24px;font-size:13px;background:var(--gray)">Đóng</button>
+</div>
+
+<!-- ==================== ZALO FLOATING BUTTON ==================== -->
+<div class="zalo-float" id="zalo-float">
+  <div class="zalo-popup" id="zalo-popup">
+    <button class="zalo-popup-close" onclick="toggleZaloPopup()">✕</button>
+    <div class="zalo-popup-title">Liên hệ Zalo Admin</div>
+    <div class="zalo-popup-num">Crack By Dunx</div>
+    <div class="zalo-popup-note">Bộ phận CSKH · Hỗ trợ 24/7</div>
+  </div>
+  <button class="zalo-bubble" onclick="toggleZaloPopup()" title="CSKH Zalo">
+    <svg width="24" height="24" viewBox="0 0 48 48" fill="none"><path d="M24 4C12.95 4 4 12.07 4 22c0 5.52 2.87 10.43 7.34 13.66L9.5 43l7.84-4.15C19.56 39.6 21.73 40 24 40c11.05 0 20-8.07 20-18S35.05 4 24 4z" fill="white"/><text x="24" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#0068FF" font-family="sans-serif">Z</text></svg>
+  </button>
+</div>
+
+
+<!-- ==================== FLASHCARD SETUP ==================== -->
+<div id="fc-setup-screen" class="screen">
+  <div class="quiz-header">
+    <div>
+      <div style="font-family:'Noto Serif SC',SimSun,'Songti SC',serif;font-size:16px;letter-spacing:2px;color:var(--gold-light)">汉字学习</div>
+      <div class="quiz-progress-text">🃏 Flashcard</div>
+    </div>
+    <div><button class="btn-nav" onclick="backToApp()">← Quay lại</button></div>
+  </div>
+  <div class="exam-setup">
+    <h2>🃏 Flashcard</h2>
+    <p>Luyện nhớ từ vựng bằng thẻ ghi nhớ</p>
+    <div class="setup-section">
+      <span class="setup-label">Loại từ</span>
+      <div class="option-group">
+        <button class="opt-btn active" onclick="setFcOpt('pool','all',this)">Tất cả (<span id="fc-total">0</span>)</button>
+        <button class="opt-btn" onclick="setFcOpt('pool','starred',this)">Đã nhớ ⭐ (<span id="fc-starred">0</span>)</button>
+        <button class="opt-btn" onclick="setFcOpt('pool','unstarred',this)">Chưa nhớ (<span id="fc-unstarred">0</span>)</button>
+      </div>
+    </div>
+    <div class="setup-section">
+      <span class="setup-label">Thứ tự</span>
+      <div class="option-group">
+        <button class="opt-btn active" onclick="setFcOpt('order','seq',this)">Theo thứ tự</button>
+        <button class="opt-btn" onclick="setFcOpt('order','rand',this)">Ngẫu nhiên</button>
+      </div>
+    </div>
+    <div class="setup-section">
+      <span class="setup-label">Số từ</span>
+      <div class="option-group">
+        <button class="opt-btn active" onclick="setFcOpt('count',10,this)">10</button>
+        <button class="opt-btn" onclick="setFcOpt('count',50,this)">50</button>
+        <button class="opt-btn" onclick="setFcOpt('count',0,this)">Tất cả</button>
+        <input class="num-input" type="number" id="fc-custom-count" placeholder="Tự nhập..." min="1"
+          oninput="setFcOpt('count',parseInt(this.value)||0,null)">
+      </div>
+    </div>
+    <div class="toggle-row" onclick="toggleFcPinyin()">
+      <div class="toggle-label">Ẩn pinyin<br><small>Chỉ hiện chữ Hán, rèn nhớ phát âm</small></div>
+      <div class="toggle-switch" id="fc-pinyin-toggle"></div>
+    </div>
+    <div style="margin-top:16px">
+      <button class="btn-back" onclick="backToApp()">← Quay lại</button>
+      <button class="btn-start" onclick="startFc()">Bắt đầu →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== FLASHCARD PLAY ==================== -->
+<div id="fc-play-screen" class="screen">
+  <div class="quiz-header">
+    <div>
+      <div style="font-family:'Noto Serif SC',SimSun,'Songti SC',serif;font-size:16px;letter-spacing:2px;color:var(--gold-light)">Flashcard</div>
+      <div class="quiz-progress-text" id="fc-prog-text">1/10</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="quiz-progress-bar-wrap"><div class="quiz-progress-bar" id="fc-prog-bar" style="width:10%"></div></div>
+      <button class="btn-nav" onclick="showFcQuit()">✕ Thoát</button>
+    </div>
+  </div>
+  <div class="fc-body">
+    <div class="fc-card-wrap" onclick="fcFlip(event)">
+      <div class="fc-card" id="fc-card">
+        <div class="fc-face fc-front">
+          <div class="fc-face-top"><button class="fc-star" id="fc-sf" onclick="event.stopPropagation();fcToggleStar()">⭐</button></div>
+          <div class="fc-face-center">
+            <div class="fc-hanzi" id="fc-hanzi">学</div>
+            <div class="fc-pinyin" id="fc-pinyin">xué</div>
+            <button class="fc-speak-btn" onclick="event.stopPropagation();fcSpeak()">🔊</button>
+          </div>
+          <div class="fc-face-bottom"><span class="fc-hint">👆 Nhấp để xem nghĩa</span></div>
+        </div>
+        <div class="fc-face fc-back">
+          <div class="fc-face-top"><button class="fc-star" id="fc-sb" onclick="event.stopPropagation();fcToggleStar()">⭐</button></div>
+          <div class="fc-face-center">
+            <div class="fc-tuloai" id="fc-tuloai">Động từ</div>
+            <div class="fc-meaning" id="fc-meaning">học</div>
+            <div class="fc-example" id="fc-example">
+              <div class="fc-ex-hanzi" id="fc-ex-hanzi"></div>
+              <div class="fc-ex-pinyin" id="fc-ex-pinyin"></div>
+              <div class="fc-ex-viet" id="fc-ex-viet"></div>
+            </div>
+          </div>
+          <div class="fc-face-bottom"><span class="fc-hint">👆 Nhấp để xem mặt trước</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="fc-nav">
+      <button class="fc-nav-btn" id="fc-prev" onclick="fcPrev()">◀</button>
+      <div class="fc-nav-line"></div>
+      <div class="fc-nav-counter"><span id="fc-cur">1</span>/<span id="fc-tot">10</span></div>
+      <div class="fc-nav-line"></div>
+      <button class="fc-nav-btn" id="fc-next" onclick="fcNext()">▶</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== FLASHCARD QUIT MODAL ==================== -->
+<div class="modal-overlay" id="fc-quit-modal">
+  <div class="modal-box" style="text-align:center">
+    <div style="font-size:32px;margin-bottom:10px">⏸️</div>
+    <h3 style="margin-bottom:8px">Thoát Flashcard?</h3>
+    <p id="fc-quit-summary" style="color:var(--gray);font-size:13px;margin-bottom:20px"></p>
+    <button class="btn-save-star" id="fc-quit-save" onclick="fcQuitSave()" style="width:100%;margin-bottom:10px"></button>
+    <button class="btn-home" onclick="fcQuitNoSave()" style="width:100%;margin-bottom:8px">Thoát không lưu</button>
+    <button class="btn-back" onclick="closeFcQuit()" style="width:100%">← Tiếp tục học</button>
+  </div>
+</div>
+
+<!-- ==================== FLASHCARD END ==================== -->
+<div id="fc-end-screen" class="screen">
+  <div class="quiz-header">
+    <div>
+      <div style="font-family:'Noto Serif SC',SimSun,'Songti SC',serif;font-size:16px;letter-spacing:2px;color:var(--gold-light)">汉字学习</div>
+    </div>
+  </div>
+  <div class="result-body">
+    <div class="result-card" style="text-align:center">
+      <div style="font-size:48px;margin-bottom:12px">🎉</div>
+      <div class="result-score">Hoàn thành!</div>
+      <div class="result-sub">Bạn đã lướt qua tất cả từ vựng</div>
+      <div class="result-stats">
+        <div class="stat-box"><div class="stat-num c" id="fc-end-total">10</div><div class="stat-label">Tổng từ</div></div>
+        <div class="stat-box"><div class="stat-num" id="fc-end-starred" style="color:var(--gold)">5</div><div class="stat-label">Đã nhớ ⭐</div></div>
+      </div>
+      <div style="margin-top:20px">
+        <button class="btn-save-star" id="fc-end-save" onclick="fcEndSave()">⭐ Lưu từ đã nhớ</button>
+      </div>
+      <div style="margin-top:16px">
+        <button class="btn-retry" onclick="startFc()">🔄 Học lại</button>
+        <button class="btn-home" onclick="backToApp()">← Về trang học</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* ===== FLASHCARD STYLES ===== */
+#fc-setup-screen,#fc-play-screen,#fc-end-screen{border:none !important;outline:none !important;box-shadow:none !important;background:var(--paper,#fdf6ec)}
+#fc-play-screen > *:not(.quiz-header):not(.fc-body),#fc-play-screen .fc-body{border:none !important;outline:none !important;box-shadow:none !important}
+.fc-body{max-width:420px;margin:0 auto;padding:16px 16px 32px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:calc(100vh - 48px);border:none !important;background:transparent !important}
+.fc-card-wrap{width:100%;max-width:400px;height:440px;perspective:1200px;cursor:pointer;margin-bottom:24px;flex-shrink:0}
+.fc-card{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.fc-card.flipped{transform:rotateY(180deg)}
+.fc-card.anim-left{animation:fcSlideL .35s ease}
+.fc-card.anim-right{animation:fcSlideR .35s ease}
+@keyframes fcSlideL{from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fcSlideR{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:translateX(0)}}
+.fc-face{position:absolute;top:0;left:0;width:100%;height:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;display:flex;flex-direction:column;padding:20px 24px;box-shadow:0 4px 24px rgba(26,10,0,.13);overflow:hidden;background:white;border:1.5px solid rgba(192,57,43,.12)}
+.fc-back{transform:rotateY(180deg)}
+.fc-face-top{width:100%;display:flex;justify-content:flex-end}
+.fc-face-center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.fc-face-bottom{width:100%;text-align:center}
+.fc-hanzi{font-family:'Noto Serif SC',SimSun,'Songti SC',serif;font-size:84px;color:var(--red-dark,#922b21);line-height:1.15}
+.fc-pinyin{font-size:24px;color:#95a5a6;font-style:italic;min-height:32px}
+.fc-speak-btn{width:52px;height:52px;border-radius:50%;background:none;border:2px solid rgba(192,57,43,.2);cursor:pointer;font-size:24px;display:flex;align-items:center;justify-content:center;transition:all .2s;margin-top:6px;padding:0;line-height:1}
+.fc-speak-btn:hover{background:rgba(192,57,43,.08);border-color:#c0392b}
+.fc-hint{font-size:13px;color:#95a5a6;letter-spacing:.5px;opacity:.6}
+.fc-tuloai{display:inline-block;font-size:14px;font-weight:700;padding:5px 16px;border-radius:12px;background:rgba(212,160,23,.15);color:#d4a017;letter-spacing:.5px}
+.fc-meaning{font-size:36px;font-weight:600;color:#1a0a00;text-align:center;line-height:1.3}
+.fc-example{width:100%;padding:14px 16px;background:#fdf6ec;border-radius:8px;border-left:3px solid #d4a017}
+.fc-ex-hanzi{font-family:'Noto Serif SC',SimSun,'Songti SC',serif;font-size:17px;color:#922b21;line-height:1.6}
+.fc-ex-pinyin{font-size:14px;color:#95a5a6;font-style:italic;margin-top:3px}
+.fc-ex-viet{font-size:14px;color:#1a0a00;margin-top:4px;font-weight:500}
+.fc-star{width:40px;height:40px;font-size:26px;cursor:pointer;transition:transform .2s;filter:grayscale(1) opacity(.3);user-select:none;display:flex;align-items:center;justify-content:center;border-radius:50%;background:none;border:none;padding:0;line-height:1}
+.fc-star.on{filter:none;transform:scale(1.15)}
+.fc-star:hover{transform:scale(1.2)}
+.fc-nav{display:flex;align-items:center;justify-content:center;gap:16px;width:100%;max-width:400px;flex-shrink:0}
+.fc-nav-btn{width:50px;height:50px;border-radius:50%;border:2px solid rgba(192,57,43,.2);background:white;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:all .2s;color:#1a0a00;box-shadow:0 1px 4px rgba(0,0,0,.1);padding:0;line-height:1}
+.fc-nav-btn:hover:not(:disabled){border-color:#c0392b;color:#c0392b;background:rgba(192,57,43,.05);transform:scale(1.08)}
+.fc-nav-btn:disabled{opacity:.25;cursor:default}
+.fc-nav-btn.fc-done{background:rgba(39,174,96,.08);border-color:#27ae60;color:#27ae60;font-size:22px}
+.fc-nav-btn.fc-done:hover{background:rgba(39,174,96,.18);transform:scale(1.08)}
+.fc-nav-line{width:20px;height:1px;background:rgba(192,57,43,.1)}
+.fc-nav-counter{font-size:15px;font-weight:600;color:#95a5a6;min-width:60px;text-align:center}
+.fc-nav-counter span{color:#c0392b;font-size:22px;font-family:'Noto Serif SC',serif}
+.vt-input-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.vt-input-toolbar .btn-back{flex:1;min-width:120px}
+.vt-hide-keyboard-btn{display:none}
+.vt-char-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.vt-char-btn{padding:10px 12px;background:#f7fbff;border:1px solid rgba(41,128,185,.18);border-radius:12px;color:#1a0a00;font-size:18px;cursor:pointer;transition:all .18s;border-radius:14px;min-width:42px;min-height:42px;line-height:1.2}
+.vt-char-btn:hover{background:rgba(41,128,185,.1);border-color:#2980b9}
+.vt-char-note{margin-top:10px;font-size:13px;color:#555}
+@media(max-width:700px){.vt-hide-keyboard-btn{display:inline-flex}} 
+@media(max-width:600px){.fc-card-wrap{max-width:340px;height:380px}.fc-hanzi{font-size:64px}.fc-pinyin{font-size:20px}.fc-meaning{font-size:28px}.fc-tuloai{font-size:12px;padding:4px 12px}.fc-ex-hanzi{font-size:15px}.fc-ex-pinyin{font-size:12px}.fc-ex-viet{font-size:13px}}
+</style>
+
+<!-- ==================== RECORDING MODAL ==================== -->
+<div class="modal-overlay" id="recording-modal">
+  <div class="modal-box recording-box" style="max-width:420px">
+    <button class="modal-close" onclick="closeRecordingModal()">✕</button>
+    <div class="recording-header">
+      <div class="recording-title">🎤 Ghi Âm Phát Âm</div>
+      <div class="recording-hanzi" id="rec-hanzi">学</div>
+      <div class="recording-pinyin" id="rec-pinyin">xué</div>
+    </div>
+    
+    <div class="recording-content">
+      <!-- Waveform Display -->
+      <div class="waveform-container">
+        <canvas id="waveform-canvas" class="waveform-canvas"></canvas>
+        <div class="recording-status" id="recording-status">Nhấn để bắt đầu ghi âm</div>
+      </div>
+      
+      <!-- Recording Controls -->
+      <div class="recording-controls">
+        <button class="rec-btn rec-start" id="rec-start-btn" onclick="startRecording()">
+          <span class="rec-icon">🎤</span>
+          <span class="rec-text">Bắt đầu</span>
+        </button>
+        <button class="rec-btn rec-stop hidden" id="rec-stop-btn" onclick="stopRecording()">
+          <span class="rec-icon">⏹</span>
+          <span class="rec-text">Dừng</span>
+        </button>
+      </div>
+      
+      <!-- Recording Time -->
+      <div class="recording-time" id="recording-time">00:00</div>
+      
+      <!-- Playback Section -->
+      <div class="playback-section hidden" id="playback-section">
+        <div class="playback-label">Phát lại:</div>
+        <div style="margin-top: 12px;">
+          <audio id="recorded-audio" style="width:100%;height:36px"></audio>
+        </div>
+        <div class="playback-actions" style="margin-top:12px;display:flex;gap:8px">
+          <button class="rec-btn rec-play" onclick="playRecording()">▶ Phát</button>
+          <button class="rec-btn rec-delete" onclick="deleteRecording()">🗑 Xóa</button>
+        </div>
+      </div>
+      
+      <!-- Reference Audio Section -->
+      <div class="reference-section" style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(41,128,185,.1)">
+        <div class="playback-label">Phát âm chuẩn:</div>
+        <button class="rec-btn rec-reference" id="rec-reference-btn" onclick="playReferenceAudio()" style="margin-top:12px;width:100%">
+          🔊 Nghe phát âm chuẩn
+        </button>
+      </div>
+      
+      <!-- Info Text -->
+      <div class="recording-info" style="margin-top:16px;font-size:12px;color:var(--gray);text-align:center;line-height:1.6">
+        <strong>Mẹo:</strong> Ghi âm phát âm của bạn và so sánh với phát âm chuẩn để cải thiện kỹ năng
+      </div>
+    </div>
+    
+    <div style="margin-top:20px">
+      <button class="btn-back" onclick="closeRecordingModal()" style="width:100%">← Đóng</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PRONUNCIATION TEST SETUP ==================== -->
+<div id="pt-setup-screen" class="screen">
+  <div class="quiz-header">
+    <div>
+      <div style="font-family:'Noto Serif SC',SimSun,'Songti SC',serif;font-size:16px;letter-spacing:2px;color:var(--gold-light)">汉字学习</div>
+      <div class="quiz-progress-text">🎤 Kiểm tra phát âm</div>
+    </div>
+    <div><button class="btn-nav" onclick="backToApp()">← Quay lại</button></div>
+  </div>
+  <div class="exam-setup">
+    <h2>🎤 Kiểm tra phát âm</h2>
+    <p>Luyện tập phát âm chữ Hán bằng cách ghi âm và nhận diện tự động</p>
+    <div class="setup-section">
+      <span class="setup-label">Loại từ</span>
+      <div class="option-group">
+        <button class="opt-btn active" onclick="setPtOpt('pool','all',this)">Tất cả (<span id="pt-total">0</span>)</button>
+        <button class="opt-btn" onclick="setPtOpt('pool','starred',this)">Đã nhớ ⭐</button>
+        <button class="opt-btn" onclick="setPtOpt('pool','unstarred',this)">Chưa nhớ</button>
+      </div>
+    </div>
+    <div class="setup-section">
+      <span class="setup-label">Số từ</span>
+      <div class="option-group">
+        <button class="opt-btn active" onclick="setPtOpt('count',10,this)">10</button>
+        <button class="opt-btn" onclick="setPtOpt('count',20,this)">20</button>
+        <button class="opt-btn" onclick="setPtOpt('count',0,this)">Tất cả</button>
+        <input class="num-input" type="number" id="pt-custom-count" placeholder="Tự nhập..." min="1"
+          oninput="setPtOpt('count',parseInt(this.value)||0,null)">
+      </div>
+    </div>
+    <p style="color:var(--gray);font-size:13px;margin-top:16px;padding:10px;background:rgba(41,128,185,.05);border-radius:6px">
+      💡 <strong>Mẹo:</strong> Hệ thống sẽ tự động nhận diện phát âm của bạn bằng Web Speech API. Phải kích hoạt microphone và đọc rõ ràng để có kết quả tốt nhất.
+    </p>
+    <div style="margin-top:20px">
+      <button class="btn-back" onclick="backToApp()">← Quay lại</button>
+      <button class="btn-start" onclick="startPt()">Bắt đầu →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PRONUNCIATION TEST PLAY ==================== -->
+<div id="pt-play-screen" class="screen">
+  <div class="quiz-header">
+    <div>
+      <div style="font-family:'Noto Serif SC',SimSun,'Songti SC',serif;font-size:16px;letter-spacing:2px;color:var(--gold-light)">汉字学习</div>
+      <div class="quiz-progress-text" id="pt-prog-text">Câu 1 / 10</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="quiz-progress-bar-wrap"><div class="quiz-progress-bar" id="pt-prog-bar" style="width:0%"></div></div>
+      <button class="btn-nav" onclick="ptQuitTest()">✕ Thoát</button>
+    </div>
+  </div>
+  <div class="pt-play-body">
+    <div class="pt-card">
+      <div class="pt-title">🎤 Đọc chữ Hán sau:</div>
+      <div class="pt-character" id="pt-character">学</div>
+      <div class="pt-character-pinyin" id="pt-character-pinyin">xué</div>
+      
+      <button class="pt-ref-btn" onclick="ptPlayReference()">🔊 Nghe phát âm chuẩn</button>
+      
+      <div style="margin-top:30px;padding-top:20px;border-top:1px solid rgba(41,128,185,.1)">
+        <div class="pt-rec-status" id="pt-rec-status">Bấm để bắt đầu ghi âm</div>
+        
+        <div class="pt-rec-controls">
+          <button class="pt-btn pt-btn-rec" id="pt-rec-start-btn" onclick="ptStartRec()">
+            🎤 Bắt đầu ghi âm
+          </button>
+          <button class="pt-btn pt-btn-stop hidden" id="pt-rec-stop-btn" onclick="ptStopRec()">
+            ⏹ Dừng ghi âm
+          </button>
+        </div>
+        
+        <div class="pt-rec-result" id="pt-rec-result" style="display:none"></div>
+        
+        <button class="pt-btn pt-btn-retry" onclick="ptRetry()" style="margin-top:12px;width:100%">
+          🔄 Nói lại
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PRONUNCIATION TEST RESULT ==================== -->
+<div id="pt-result-screen" class="screen">
+  <div class="result-body">
+    <div class="result-card">
+      <div class="result-score" id="pt-res-score">0/0</div>
+      <div class="result-sub" id="pt-res-sub"></div>
+      <div class="result-stats">
+        <div class="stat-box"><div class="stat-num c" id="pt-res-correct">0</div><div class="stat-label">Đúng</div></div>
+        <div class="stat-box"><div class="stat-num w" id="pt-res-wrong">0</div><div class="stat-label">Sai</div></div>
+      </div>
+      
+      <div class="star-save-section" id="pt-star-save" style="margin-top:20px">
+        <div class="star-save-title">⭐ Đánh dấu "đã nhớ" từ phát âm đúng</div>
+        <div class="star-save-note">Những từ bạn phát âm đúng sẽ được tự động đánh dấu</div>
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <button class="btn-save-star" onclick="ptSaveCorrectToStar()" style="flex:1">✅ Lưu từ đúng</button>
+          <button class="btn-back" onclick="backToApp()" style="flex:1">← Không lưu</button>
+        </div>
+      </div>
+      
+      <div class="result-list" id="pt-res-list"></div>
+      
+      <div style="margin-top:20px">
+        <button class="btn-retry" onclick="startPt()">🔄 Làm tiếp từ mới</button>
+        <button class="btn-home" onclick="backToApp()">← Về trang học</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PINYIN TYPING TEST SETUP ==================== -->
+<div id="py-setup-screen" class="screen">
+  <div class="quiz-header">
+    <div>
+      <div style="font-family:'Noto Serif SC',SimSun,'Songti SC',serif;font-size:16px;letter-spacing:2px;color:var(--gold-light)">汉字学习</div>
+      <div class="quiz-progress-text">🔤 Kiểm tra Pinyin</div>
+    </div>
+    <div><button class="btn-nav" onclick="backToApp()">← Quay lại</button></div>
+  </div>
+  <div class="exam-setup">
+    <h2>🔤 Kiểm tra Pinyin</h2>
+    <p>Hiển thị chữ Hán + nghĩa tiếng Việt, bạn nhập Pinyin (hoặc chữ Hán) và nhấn "Xác nhận" hoặc Enter.</p>
+    <div class="setup-section">
+      <span class="setup-label">Loại từ</span>
+      <div class="option-group">
+        <button class="opt-btn active" onclick="setPyOpt('pool','all',this)">Tất cả (<span id="py-total">0</span>)</button>
+        <button class="opt-btn" onclick="setPyOpt('pool','starred',this)">Đã nhớ ⭐</button>
+        <button class="opt-btn" onclick="setPyOpt('pool','unstarred',this)">Chưa nhớ</button>
+      </div>
+    </div>
+    <div class="setup-section">
+      <span class="setup-label">Thứ tự làm</span>
+      <div class="option-group">
+        <button class="opt-btn active" onclick="setPyOpt('order','seq',this)">Theo thứ tự</button>
+        <button class="opt-btn" onclick="setPyOpt('order','rand',this)">Ngẫu nhiên</button>
+      </div>
+    </div>
+    <div class="setup-section">
+      <span class="setup-label">Số từ</span>
+      <div class="option-group">
+        <button class="opt-btn active" onclick="setPyOpt('count',10,this)">10</button>
+        <button class="opt-btn" onclick="setPyOpt('count',20,this)">20</button>
+        <button class="opt-btn" onclick="setPyOpt('count',0,this)">Tất cả</button>
+        <input class="num-input" type="number" id="py-custom-count" placeholder="Tự nhập..." min="1"
+          oninput="setPyOpt('count',parseInt(this.value)||0,null)">
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <button class="btn-back" onclick="backToApp()">← Quay lại</button>
+      <button class="btn-start" onclick="startPy()">Bắt đầu →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PINYIN TYPING TEST PLAY ==================== -->
+<div id="py-play-screen" class="screen">
+  <div class="quiz-header">
+    <div>
+      <div style="font-family:'Noto Serif SC',SimSun,'Songti SC',serif;font-size:16px;letter-spacing:2px;color:var(--gold-light)">Kiểm tra Pinyin</div>
+      <div class="quiz-progress-text" id="py-prog-text">1 / 10</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="quiz-progress-bar-wrap"><div class="quiz-progress-bar" id="py-prog-bar" style="width:0%"></div></div>
+      <button class="btn-nav" onclick="pyQuitTest()">✕ Thoát</button>
+    </div>
+  </div>
+  <div class="quiz-body">
+    <div class="quiz-card" id="py-card">
+      <div style="font-size:14px;color:var(--gray);margin-bottom:8px">Hienthi: Chữ Hán + Nghĩa</div>
+      <div style="font-size:48px;margin:6px 0" id="py-hanzi">学</div>
+      <div style="font-size:16px;color:#333;margin-bottom:18px" id="py-meaning">học</div>
+
+      <input id="py-input" type="text" placeholder="Nhập pinyin hoặc chữ Hán..." style="width:100%;padding:10px;font-size:16px;margin-bottom:10px" onkeydown="if(event.key==='Enter')pyCheck()">
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button class="btn-start" onclick="pyCheck()">Xác nhận</button>
+        <button class="btn-back" onclick="pyNext()">Bỏ qua →</button>
+      </div>
+      <div id="py-feedback" style="margin-top:12px;font-size:14px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== QUIT PT POPUP ==================== -->
+<div class="modal-overlay" id="pt-quit-modal">
+  <div class="modal-box" style="text-align:center">
+    <div style="font-size:32px;margin-bottom:10px">⏸️</div>
+    <h3 style="margin-bottom:8px">Thoát kiểm tra phát âm?</h3>
+    <p id="pt-quit-summary" style="color:var(--gray);font-size:13px;margin-bottom:20px"></p>
+    <button class="btn-save-star" onclick="ptQuitSave()" style="width:100%;margin-bottom:10px">⭐ Lưu kết quả & thoát</button>
+    <button class="btn-home" onclick="ptQuitCancel()" style="width:100%;margin-bottom:8px">Tiếp tục không lưu</button>
+    <button class="btn-back" onclick="closePtQuit()" style="width:100%">← Tiếp tục làm</button>
+  </div>
+</div>
+
+<!-- ==================== PINYIN TEST RESULT ==================== -->
+<div id="py-result-screen" class="screen">
+  <div class="result-body">
+    <div class="result-card">
+      <div class="result-score" id="py-res-score">0/0</div>
+      <div class="result-sub" id="py-res-sub"></div>
+      <div class="result-stats">
+        <div class="stat-box"><div class="stat-num c" id="py-res-correct">0</div><div class="stat-label">Đúng</div></div>
+        <div class="stat-box"><div class="stat-num w" id="py-res-wrong">0</div><div class="stat-label">Sai</div></div>
+      </div>
+      
+      <div class="star-save-section" id="py-star-save" style="margin-top:20px">
+        <div class="star-save-title">⭐ Đánh dấu "đã nhớ" từ đã kiểm tra đúng</div>
+        <div class="star-save-note">Những từ bạn trả lời đúng sẽ được tự động đánh dấu</div>
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <button class="btn-save-star" onclick="pySaveCorrectToStar()" style="flex:1">✅ Lưu từ đúng</button>
+          <button class="btn-back" onclick="backToApp()" style="flex:1">← Không lưu</button>
+        </div>
+      </div>
+      
+      <div class="result-list" id="py-res-list"></div>
+      
+      <div style="margin-top:20px">
+        <button class="btn-retry" onclick="startPy()">🔄 Làm tiếp từ mới</button>
+        <button class="btn-home" onclick="backToApp()">← Về trang học</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="py-quit-modal">
+  <div class="modal-box" style="text-align:center">
+    <div style="font-size:32px;margin-bottom:10px">⏸️</div>
+    <h3 style="margin-bottom:8px">Thoát kiểm tra Pinyin?</h3>
+    <p id="py-quit-summary" style="color:var(--gray);font-size:13px;margin-bottom:20px"></p>
+    <button class="btn-save-star" onclick="pyQuitSave()" style="width:100%;margin-bottom:10px">⭐ Lưu kết quả & thoát</button>
+    <button class="btn-home" onclick="pyQuitCancel()" style="width:100%;margin-bottom:8px">Tiếp tục không lưu</button>
+    <button class="btn-back" onclick="closePyQuit()" style="width:100%">← Tiếp tục làm</button>
+  </div>
+</div>
+
+<!-- ==================== VIETNAMESE TRANSLATION TEST SETUP ==================== -->
+<div id="vt-setup-screen" class="screen">
+  <div class="quiz-header">
+    <div>
+      <div style="font-family:'Noto Serif SC',SimSun,'Songti SC',serif;font-size:16px;letter-spacing:2px;color:var(--gold-light)">汉字学习</div>
+      <div class="quiz-progress-text">🇻🇳 Dịch Tiếng Việt</div>
+    </div>
+    <div><button class="btn-nav" onclick="backToApp()">← Quay lại</button></div>
+  </div>
+  <div class="exam-setup">
+    <h2>🇻🇳 Dịch câu ví dụ</h2>
+    <p>Hiển thị câu ví dụ tiếng Việt, bạn nhập câu ví dụ tiếng Trung tương ứng để ôn tập.</p>
+    <div class="setup-section">
+      <span class="setup-label">Loại từ</span>
+      <div class="option-group">
+        <button class="opt-btn active" onclick="setVtOpt('pool','all',this)">Tất cả (<span id="vt-total">0</span>)</button>
+        <button class="opt-btn" onclick="setVtOpt('pool','starred',this)">Đã nhớ ⭐</button>
+        <button class="opt-btn" onclick="setVtOpt('pool','unstarred',this)">Chưa nhớ</button>
+      </div>
+    </div>
+    <div class="setup-section">
+      <span class="setup-label">Thứ tự làm</span>
+      <div class="option-group">
+        <button class="opt-btn active" onclick="setVtOpt('order','seq',this)">Theo thứ tự</button>
+        <button class="opt-btn" onclick="setVtOpt('order','rand',this)">Ngẫu nhiên</button>
+      </div>
+    </div>
+    <div class="setup-section">
+      <span class="setup-label">Số từ</span>
+      <div class="option-group">
+        <button class="opt-btn active" onclick="setVtOpt('count',10,this)">10</button>
+        <button class="opt-btn" onclick="setVtOpt('count',20,this)">20</button>
+        <button class="opt-btn" onclick="setVtOpt('count',0,this)">Tất cả</button>
+        <input class="num-input" type="number" id="vt-custom-count" placeholder="Tự nhập..." min="1"
+          oninput="setVtOpt('count',parseInt(this.value)||0,null)">
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <button class="btn-back" onclick="backToApp()">← Quay lại</button>
+      <button class="btn-start" onclick="startVt()">Bắt đầu →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== VIETNAMESE TRANSLATION TEST PLAY ==================== -->
+<div id="vt-play-screen" class="screen">
+  <div class="quiz-header">
+    <div>
+      <div style="font-family:'Noto Serif SC',SimSun,'Songti SC',serif;font-size:16px;letter-spacing:2px;color:var(--gold-light)">Dịch Tiếng Việt</div>
+      <div class="quiz-progress-text" id="vt-prog-text">1 / 10</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="quiz-progress-bar-wrap"><div class="quiz-progress-bar" id="vt-prog-bar" style="width:0%"></div></div>
+      <button class="btn-nav" onclick="vtQuitTest()">✕ Thoát</button>
+    </div>
+  </div>
+  <div class="quiz-body">
+    <div class="quiz-card" id="vt-card">
+      <div style="font-size:14px;color:var(--gray);margin-bottom:8px">Dịch câu ví dụ sau sang tiếng Trung</div>
+      <div style="font-size:18px;color:#333;margin-bottom:18px;line-height:1.6" id="vt-meaning">học</div>
+      <div style="font-size:12px;color:var(--gray);margin-bottom:8px">Nhập câu ví dụ tiếng Trung đúng hoặc chọn chữ Hán bên dưới</div>
+      <input id="vt-input" type="text" placeholder="Nhập câu ví dụ tiếng Trung..." style="width:100%;padding:10px;font-size:16px;margin-bottom:10px" onkeydown="if(event.key==='Enter')vtCheck()">
+      <div class="vt-input-toolbar">
+        <button class="btn-back vt-clear-btn" onclick="vtClearInput()">🧹 Xóa</button>
+        <button class="btn-back vt-hide-keyboard-btn" onclick="vtHideKeyboard()">⬇️ Ẩn bàn phím</button>
+      </div>
+      <div id="vt-char-row" class="vt-char-row"></div>
+      <div id="vt-char-note" class="vt-char-note">Hoặc chọn chữ Hán từ câu ví dụ để hoàn thành.</div>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button class="btn-start" onclick="vtCheck()">Xác nhận</button>
+        <button class="btn-back" onclick="vtNext()">Bỏ qua →</button>
+      </div>
+      <div id="vt-feedback" style="margin-top:12px;font-size:14px"></div>
+    </div>
+  </div>
+</div>
+
+<div id="vt-result-screen" class="screen">
+  <div class="result-body">
+    <div class="result-card">
+      <div class="result-score" id="vt-res-score">0/0</div>
+      <div class="result-sub" id="vt-res-sub"></div>
+      <div class="result-stats">
+        <div class="stat-box"><div class="stat-num c" id="vt-res-correct">0</div><div class="stat-label">Đúng</div></div>
+        <div class="stat-box"><div class="stat-num w" id="vt-res-wrong">0</div><div class="stat-label">Sai</div></div>
+      </div>
+      <div class="star-save-section" id="vt-star-save" style="margin-top:20px">
+        <div class="star-save-title">⭐ Đánh dấu "đã nhớ" từ đã kiểm tra đúng</div>
+        <div class="star-save-note">Những từ bạn trả lời đúng sẽ được tự động đánh dấu</div>
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <button class="btn-save-star" onclick="vtSaveCorrectToStar()" style="flex:1">✅ Lưu từ đúng</button>
+          <button class="btn-back" onclick="backToApp()" style="flex:1">← Không lưu</button>
+        </div>
+      </div>
+      <div class="result-list" id="vt-res-list"></div>
+      <div style="margin-top:20px">
+        <button class="btn-retry" onclick="startVt()">🔄 Làm tiếp từ mới</button>
+        <button class="btn-home" onclick="backToApp()">← Về trang học</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-overlay" id="vt-quit-modal">
+  <div class="modal-box" style="text-align:center">
+    <div style="font-size:32px;margin-bottom:10px">⏸️</div>
+    <h3 style="margin-bottom:8px">Thoát phần Dịch Tiếng Việt?</h3>
+    <p id="vt-quit-summary" style="color:var(--gray);font-size:13px;margin-bottom:20px"></p>
+    <button class="btn-save-star" onclick="vtQuitSave()" style="width:100%;margin-bottom:10px">⭐ Lưu kết quả & thoát</button>
+    <button class="btn-home" onclick="vtQuitCancel()" style="width:100%;margin-bottom:8px">Tiếp tục không lưu</button>
+    <button class="btn-back" onclick="closeVtQuit()" style="width:100%">← Tiếp tục làm</button>
+  </div>
+</div>
+
+<!-- ==================== DATA & LOGIC ==================== -->
+<script src="hskdata.js"></script>
+<script src="grammar_data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
